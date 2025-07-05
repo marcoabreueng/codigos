@@ -1,0 +1,595 @@
+import React from "react";
+ 
+export default function App() {
+  return (
+    <div>
+      {/* Barra de Navegação */}
+      <nav style={styles.nav}>
+        <a href="#" style={styles.navLink}>ARRENDA FÁCIL</a>
+        <a href="#oque" style={styles.navLink}>O QUE FAZEMOS</a>
+        <a href="#como" style={styles.navLink}>COMO FAZEMOS</a>
+        <a href="#faq" style={styles.navLink}>PERGUNTAS</a>
+        <a href="#contato" style={styles.navLink}>ENTRE EM CONTATO</a>
+        <a href="#login" style={styles.navLink}>LOGIN</a> {/* Novo link para a seção de Login */}
+        <a style={styles.accessButton} href="#login"> {/* Botão ACESSE A PLATAFORMA agora aponta para o login */}
+          ACESSE A PLATAFORMA
+        </a>
+      </nav>
+
+      {/* Seção de Cabeçalho/Hero */}
+      <header style={styles.header}>
+        <h1 style={styles.headerTitle}>ARRENDA FÁCIL</h1>
+        <p style={styles.headerText}>ANUNCIE – ENCONTRE – ARRENDE</p>
+        <a href="#" style={styles.ctaButton}>
+          SAIBA MAIS
+        </a>
+      </header>
+
+      {/* Seção "O QUE FAZEMOS" */}
+      <section id="oque" style={styles.section}>
+        <h2 style={styles.sectionTitle}>O QUE FAZEMOS</h2>
+        <div style={styles.timeline}>
+          <div style={styles.timelineItem}>
+            <h3>Proprietários</h3>
+            <p>Transforme sua propriedade ociosa em uma fonte de renda.</p>
+          </div>
+          <div style={styles.timelineItem}>
+            <h3>Arrendatários</h3>
+            <p>
+              Encontre a terra ideal para seu negócio de forma simples e rápida.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção "COMO FAZEMOS" */}
+      <section id="como" style={styles.section}>
+        <h2 style={styles.sectionTitle}>COMO FAZEMOS</h2>
+        <div style={styles.timeline}>
+          <div style={styles.timelineItem}>
+            <p>
+              A plataforma ARRENDA FÁCIL transforma o arrendamento com
+              transparência e conexão direta.
+            </p>
+          </div>
+          <div style={styles.timelineItem}>
+            <p>
+              Conectamos proprietários e arrendatários com facilidade e
+              sustentabilidade.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção "Públicos" */}
+      <section style={styles.section}>
+        <h2 style={styles.sectionTitle}>Públicos</h2>
+        <div style={styles.cards}>
+          <div style={styles.card}>
+            <h3>Proprietários</h3>
+            <p>Cadastre suas terras e encontre arrendatários ideais.</p>
+          </div>
+          <div style={styles.card}>
+            <h3>Arrendatários</h3>
+            <p>Busque propriedades de forma clara e eficiente.</p>
+          </div>
+          <div style={styles.card}>
+            <h3>Agentes</h3>
+            <p>Negocie arrendamentos com segurança e alcance.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção de Perguntas Frequentes (FAQ) */}
+      <section id="faq" style={styles.section}>
+        <h2 style={styles.sectionTitle}>Perguntas Frequentes</h2>
+        <details style={styles.details}>
+          <summary style={styles.summary}>Como funciona o processo na plataforma?</summary>
+          <p style={styles.detailsContent}>O processo é simples: proprietários anunciam suas terras, arrendatários buscam por elas, e nossa plataforma conecta ambos de forma eficiente.</p>
+        </details>
+        <details style={styles.details}>
+          <summary style={styles.summary}>Consigo usar a plataforma para aumentar o alcance?</summary>
+          <p style={styles.detailsContent}>Sim! Nossa plataforma é ideal para agentes que desejam expandir seu alcance e conectar-se com um público maior de proprietários e arrendatários.</p>
+        </details>
+        <details style={styles.details}>
+          <summary style={styles.summary}>Existe custo para utilizar?</summary>
+          <p style={styles.detailsContent}>Oferecemos diferentes planos, incluindo opções gratuitas e premium com mais recursos. Consulte nossa página de preços para mais detalhes.</p>
+        </details>
+        <details style={styles.details}>
+          <summary style={styles.summary}>Há taxa por arrendamento efetivado?</summary>
+          <p style={styles.detailsContent}>Sim, em alguns planos, uma pequena taxa ou percentual pode ser aplicada sobre os arrendamentos efetivados através da plataforma. Os detalhes completos estão nos termos de uso.</p>
+        </details>
+      </section>
+
+      {/* Seção de Contato */}
+      <section id="contato" style={styles.section}>
+        <h2 style={styles.sectionTitle}>Fale Conosco</h2>
+        <form style={styles.form}>
+          <input type="text" placeholder="Nome Completo" style={styles.input} />
+          <input
+            type="tel"
+            placeholder="(00) 00000-0000"
+            style={styles.input}
+          />
+          <input
+            type="email"
+            placeholder="seu@email.com.br"
+            style={styles.input}
+          />
+          <textarea
+            placeholder="Informe sua mensagem."
+            style={styles.textarea}
+          ></textarea>
+          <button type="submit" style={styles.button}>
+            ENVIAR
+          </button>
+        </form>
+      </section>
+
+      {/* Nova Seção de Login */}
+      <section id="login" style={styles.section}>
+        <h2 style={styles.sectionTitle}>Login</h2>
+        <form style={styles.form}>
+          <input
+            type="text"
+            placeholder="Usuário ou Email"
+            style={styles.input}
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            style={styles.input}
+          />
+          <button type="submit" style={styles.button}>
+            ENTRAR
+          </button>
+          <a href="#" style={styles.forgotPasswordLink}>Esqueceu a senha?</a>
+        </form>
+      </section>
+
+      {/* Rodapé */}
+      <footer style={styles.footer}>
+        <p>Copyright © 2025 - ARRENDA FÁCIL</p>{" "}
+      </footer>
+
+      {/* Barra de Consentimento de Cookies */}
+      <div style={styles.cookie}>
+        <span>
+          Utilizamos cookies para personalizar sua experiência.{" "}
+          <a href="#" style={styles.cookieLink}>POLÍTICA DE PRIVACIDADE</a>
+        </span>
+        <button style={styles.cookieButton}>CONTINUAR E FECHAR</button>
+      </div>
+    </div>
+  );
+}
+
+const styles = {
+  nav: {
+    backgroundColor: "#fff",
+    padding: "10px",
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: 'center',
+    position: "sticky",
+    top: 0,
+    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+    zIndex: 100,
+  },
+  navLink: {
+    textDecoration: 'none',
+    color: '#333',
+    fontWeight: 'bold',
+    padding: '8px 15px',
+    transition: 'color 0.3s ease',
+  },
+  header: {
+    background: "#f2f2f2", // Fundo cinza claro, sem imagem
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    position: 'relative',
+    color: '#333', // Cor do texto ajustada para fundo claro
+  },
+  headerContent: {
+    position: 'relative',
+    zIndex: 2,
+  },
+  headerTitle: { color: "#7ed957", fontSize: "48px", marginBottom: "10px" }, // Removido text-shadow
+  headerText: { fontSize: "18px", color: "#333" }, // Removido text-shadow
+  ctaButton: {
+    marginTop: "20px",
+    backgroundColor: "#4caf50",
+    padding: "10px 20px",
+    color: "white",
+    textDecoration: "none",
+    borderRadius: "4px",
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
+  accessButton: {
+    backgroundColor: "#4caf50",
+    color: "white",
+    padding: "8px 15px",
+    borderRadius: "5px",
+    textDecoration: "none",
+    fontWeight: 'bold',
+    transition: 'background-color 0.3s ease',
+  },
+  section: {
+    padding: "50px 20px",
+    maxWidth: "1000px", // Mantido o max-width original
+    margin: "auto",
+  },
+  sectionTitle: { textAlign: "center", marginBottom: "30px", fontSize: '36px', color: '#333' },
+  timeline: { borderLeft: "2px solid #4caf50", paddingLeft: "30px" },
+  timelineItem: { marginBottom: "30px" },
+  cards: {
+    display: "flex",
+    justifyContent: "space-between", // Mantido o justify-content original
+    flexWrap: "wrap",
+    gap: '20px', // Ajustado para melhor espaçamento
+  },
+  card: {
+    background: "#fff3e0",
+    borderLeft: "5px solid orange",
+    padding: "20px",
+    margin: "10px", // Mantido o margin original
+    flex: 1,
+    minWidth: "280px",
+    maxWidth: "30%", // Mantido o max-width original
+    borderRadius: "8px",
+    boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+    maxWidth: "400px",
+    margin: "auto",
+  },
+  input: {
+    padding: "10px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+  },
+  textarea: {
+    padding: "10px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    height: "100px",
+  },
+  button: {
+    backgroundColor: "#4caf50",
+    color: "white",
+    padding: "10px",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+  },
+  footer: {
+    background: "#f9f9f9",
+    padding: "20px",
+    textAlign: "center",
+    fontSize: "14px",
+    color: "#666",
+  },
+  cookie: {
+    background: "#c1e1a6",
+    padding: "10px",
+    textAlign: "center",
+    position: "fixed",
+    bottom: 0,
+    width: "100%",
+    fontSize: "13px",
+    display: 'flex', // Adicionado display flex para alinhar conteúdo
+    justifyContent: 'center', // Centralizar conteúdo
+    alignItems: 'center', // Alinhar itens verticalmente
+    gap: '20px', // Espaçamento entre texto e botão
+    boxShadow: '0 -2px 5px rgba(0,0,0,0.2)',
+    zIndex: 1000,
+  },
+  cookieButton: {
+    background: "#4caf50",
+    color: "white",
+    border: "none",
+    padding: "5px 15px",
+    marginLeft: "20px", // Mantido o margin original
+    borderRadius: "4px",
+    cursor: "pointer",
+  },
+  cookieLink: { // Estilo para o link de política de privacidade
+    color: '#333',
+    textDecoration: 'underline',
+  },
+  forgotPasswordLink: { // Estilo para o link "Esqueceu a senha?"
+    fontSize: "14px",
+    color: "#4caf50",
+    textDecoration: "none",
+    marginTop: "5px",
+    textAlign: "center",
+  },
+
+  // Estilos específicos para as seções que você tinha no código anterior
+  // Estes são adicionados para garantir que o layout geral se mantenha,
+  // mesmo sem as funcionalidades de imagem e media queries inline.
+  missionVisionContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '50px',
+    marginBottom: '40px',
+    flexWrap: 'wrap',
+  },
+  missionVisionItem: {
+    textAlign: 'center',
+    flex: 1,
+    minWidth: '250px',
+    maxWidth: '400px',
+  },
+  missionVisionIcon: {
+    fontSize: '40px',
+    marginBottom: '10px',
+    display: 'block',
+  },
+  tagline: {
+    textAlign: 'center',
+    fontSize: '20px',
+    marginBottom: '40px',
+    color: '#555',
+  },
+  buttonCenter: {
+    textAlign: 'center',
+    marginBottom: '60px',
+  },
+  proprietariosArrendatariosSection: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    gap: '40px',
+    marginTop: '60px',
+    position: 'relative',
+    flexWrap: 'wrap',
+  },
+  proprietariosBox: {
+    flex: 1,
+    minWidth: '300px',
+    maxWidth: '45%',
+    backgroundColor: '#fff',
+    padding: '30px',
+    borderRadius: '10px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    textAlign: 'left',
+  },
+  arrendatariosBox: {
+    flex: 1,
+    minWidth: '300px',
+    maxWidth: '45%',
+    backgroundColor: '#fff',
+    padding: '30px',
+    borderRadius: '10px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    textAlign: 'left',
+  },
+  boxContent: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '20px',
+    marginBottom: '20px',
+    flexWrap: 'wrap',
+  },
+  boxImage: { // Placeholder para imagens dentro das caixas
+    width: '150px',
+    height: '150px',
+    borderRadius: '50%',
+    objectFit: 'cover',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+  },
+  questions: {
+    marginTop: '20px',
+    borderTop: '1px solid #eee',
+    paddingTop: '15px',
+  },
+  questionsP: {
+    margin: '5px 0',
+    fontSize: '15px',
+    color: '#666',
+  },
+  verticalLine: {
+    width: '2px',
+    backgroundColor: '#4caf50',
+    height: 'auto',
+    minHeight: '200px',
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    top: '100px',
+    bottom: '100px',
+  },
+  cardOrange: { // Estilos para os cards laranja
+    backgroundColor: '#FF9800',
+    borderLeftColor: '#FF9800',
+    color: '#fff',
+  },
+  cardImage: { // Placeholder para imagens dentro dos cards
+    width: '100%',
+    maxWidth: '200px',
+    height: 'auto',
+    borderRadius: '8px',
+    marginBottom: '15px',
+    objectFit: 'cover',
+  },
+  sectionButton: { // Estilo base para os botões dentro dos cards
+    backgroundColor: '#fff',
+    color: '#FF9800',
+    padding: '12px 25px',
+    border: 'none',
+    borderRadius: '5px',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease, color 0.3s ease',
+  },
+  sectionButtonOrange: { // Estilo específico para o botão branco com texto laranja
+    backgroundColor: '#fff',
+    color: '#FF9800',
+  },
+  platformSimplifyConnectionContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '40px',
+    marginTop: '50px',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    backgroundColor: '#f9f9f9',
+    padding: '40px',
+    borderRadius: '10px',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+  },
+  platformDetails: {
+    flex: 1,
+    minWidth: '300px',
+    maxWidth: '500px',
+    textAlign: 'left',
+  },
+  platformSubtitle: {
+    fontSize: '30px',
+    color: '#333',
+    marginBottom: '20px',
+  },
+  platformDescription: {
+    fontSize: '18px',
+    marginBottom: '20px',
+  },
+  platformBenefitsList: {
+    listStyle: 'none',
+    padding: 0,
+    marginBottom: '30px',
+  },
+  platformBenefitItem: {
+    marginBottom: '10px',
+    fontSize: '16px',
+  },
+  platformImages: {
+    display: 'flex',
+    gap: '15px',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginTop: '20px',
+  },
+  platformSmallImage: { // Placeholder para imagens pequenas da plataforma
+    width: '150px',
+    height: '100px',
+    objectFit: 'cover',
+    borderRadius: '8px',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+  },
+  simplifyConnectionBlock: {
+    flex: 1,
+    minWidth: '300px',
+    maxWidth: '500px',
+    textAlign: 'center',
+  },
+  simplifyConnectionImageLarge: {
+    marginBottom: '20px',
+  },
+  centralImage: { // Placeholder para imagem central de conexão
+    width: '100%',
+    maxWidth: '400px',
+    height: 'auto',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+  },
+  simplifyConnectionText: {
+    textAlign: 'left',
+  },
+  simplifyConnectionTextHeading: {
+    fontSize: '28px',
+    marginBottom: '15px',
+  },
+  simplifyConnectionTextList: {
+    listStyle: 'none',
+    padding: 0,
+  },
+  simplifyConnectionTextItem: {
+    marginBottom: '8px',
+    fontSize: '16px',
+  },
+  callToActionBottom: {
+    backgroundColor: '#FF9800',
+    color: 'white',
+    padding: '40px 30px',
+    borderRadius: '10px',
+    textAlign: 'center',
+    marginTop: '80px',
+  },
+  details: {
+    backgroundColor: "#fff",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    marginBottom: "15px",
+    overflow: "hidden",
+  },
+  summary: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "18px 25px",
+    fontSize: "18px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    backgroundColor: "#f5f5f5",
+    borderBottom: "1px solid #eee",
+  },
+  detailsContent: {
+    padding: "15px 25px",
+    fontSize: "16px",
+    textAlign: "left",
+    lineHeight: "1.8",
+  },
+  contactContent: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '50px',
+    flexWrap: 'wrap',
+    marginTop: '40px',
+  },
+  contactInfo: {
+    flex: 1,
+    minWidth: '280px',
+    maxWidth: '400px',
+    textAlign: 'left',
+    padding: '20px',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+  },
+  contactItem: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '20px',
+    fontSize: '18px',
+    color: '#555',
+  },
+  contactIcon: { // Placeholder para ícones de contato
+    fontSize: '24px',
+    marginRight: '15px',
+    color: '#4caf50',
+  },
+  partnersLogos: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '40px',
+    flexWrap: 'wrap',
+    marginTop: '60px',
+  },
+  partnerLogo: { // Placeholder para logos de parceiros
+    maxWidth: '150px',
+    height: 'auto',
+    filter: 'grayscale(100%)',
+    opacity: 0.7,
+    transition: 'filter 0.3s ease, opacity 0.3s ease',
+  },
+};
