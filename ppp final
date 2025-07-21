@@ -1,0 +1,878 @@
+import React, { useState } from "react";
+
+const terrasData = [
+  {
+    id: 1,
+    nome: "Terra Rural Bela Vista",
+    localizacao: "leopoldina, MG",
+    resumo: "Terreno fértil de 50 hectares ideal para agricultura.",
+    preco: "R$ 2.000,00 / mês",
+    imagem:
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    detalhes:
+      "Localizada próxima a rodovia, com fácil acesso e água disponível. Solo muito produtivo para culturas diversas.",
+    mapaEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.145881333194!2d-46.65684498502264!3d-23.56309938468133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59a6d9f3b1a7%3A0x4c5c11b1f0e4b3f!2sAvenida%20Paulista%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1678886564123!5m2!1spt-BR!2sbr",
+  },
+  {
+    id: 2,
+    nome: "Fazenda Recanto Verde",
+    localizacao: "Leopoldina, MG",
+    resumo: "Propriedade de 120 hectares com pastagens e córrego particular.",
+    preco: "R$ 3.500,00 / mês",
+    imagem:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80",
+    detalhes:
+      "Ideal para criação de gado e manejo sustentável. Excelente infraestrutura e terra plana.",
+    mapaEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.020810793138!2d-43.93923508508538!3d-19.9234509866076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699ddc3a2a7f5%3A0x6d1f76d3f259f9d!2sPra%C3%A7a%20da%20Liberdade%20-%20Funcion%C3%A1rios%2C%20Belo%20Horizonte%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1678886634567!5m2!1spt-BR!2sbr",
+  },
+];
+
+// Conteúdo dos Termos de Uso (MODIFICADO)
+const termosDeUsoContent = (
+  <>
+    <p>Para usar nossa plataforma, você precisa, antes de qualquer coisa:</p>
+    <ul>
+      <li>Compreender os termos e condições presentes nesta página;</li>
+      <li>Se identificar com o funcionamento da plataforma;</li>
+      <li>Estar ciente e concordar com o que está escrito nestes termos.</li>
+    </ul>
+    <p>Com isso, você estará pronto para utilizar a nossa plataforma.</p>
+
+    <h3>I - O QUE É O ARRENDA FÁCIL?</h3>
+    <p>
+      Somos uma plataforma especializada na divulgação de propriedades rurais
+      para arrendamento, com o objetivo de conectar proprietários que desejam
+      arrendar suas terras a pessoas que buscam áreas para desenvolver suas
+      atividades. Nosso foco é oferecer praticidade a quem enfrenta dificuldades
+      para encontrar terras disponíveis. Atuamos exclusivamente como um canal de
+      anúncios, facilitando o contato direto entre Proprietário e Arrendatário,
+      que negociam e formalizam o contrato de arrendamento fora da plataforma.
+    </p>
+
+    <h3>II - DO FUNCIONAMENTO GERAL</h3>
+    <p>
+      Nesta plataforma, você pode divulgar seu interesse em arrendar uma
+      propriedade rural ou anunciar uma área disponível para arrendamento.
+    </p>
+    <p>
+      <strong>II.I.</strong> O Arrenda Fácil se limita a oferecer o espaço
+      necessário para que você possa anunciar seu interesse em propriedades
+      rurais, permitindo a inclusão de descrições em texto e imagens
+      ilustrativas;
+    </p>
+    <p>
+      <strong>II.II.</strong> A criação dos anúncios, bem como todo o conteúdo
+      neles inserido, é de total e exclusiva responsabilidade do usuário;
+    </p>
+    <p>
+      <strong>II.III.</strong> Cabe ao usuário fornecer um meio de contato para
+      que outros usuários da plataforma possam iniciar a comunicação. A escolha
+      e disponibilização desses dados de contato são de responsabilidade
+      exclusiva do próprio usuário;
+    </p>
+    <p>
+      <strong>II.IV.</strong> As informações contidas nos anúncios serão
+      visíveis para todos os usuários com cadastro regular na plataforma.
+    </p>
+
+    <h3>III. DA CONTA</h3>
+    <p>
+      <strong>III.I.</strong> Ao criar uma conta na plataforma, o usuário
+      declara que todas as informações fornecidas são verdadeiras e concorda com
+      os termos estabelecidos;
+    </p>
+    <p>
+      <strong>III.II.</strong> É responsabilidade do usuário manter seus dados
+      sempre atualizados;
+    </p>
+    <p>
+      <strong>III.III.</strong> A senha de acesso deve ser mantida em sigilo e
+      não pode ser compartilhada com terceiros. Todas as ações realizadas na
+      plataforma serão atribuídas exclusivamente ao titular da conta;
+    </p>
+    <p>
+      <strong>III.IV.</strong> Todos os e-mails enviados ao endereço de e-mail
+      cadastrado serão considerados devidamente entregues;
+    </p>
+    <p>
+      <strong>III.V.</strong> O descumprimento de qualquer cláusula destes
+      Termos e Condições Gerais de Uso poderá resultar na suspensão ou exclusão
+      da conta e/ou dos anúncios vinculados, sem direito a reembolso de
+      quaisquer taxas pagas;
+    </p>
+    <p>
+      <strong>III.VI.</strong> A criação de conta na plataforma é permitida
+      tanto para Pessoas Físicas quanto para Pessoas Jurídicas;
+    </p>
+    <p>
+      <strong>III.VII.</strong> É proibido o uso da plataforma por pessoas
+      civilmente incapazes, absoluta ou relativamente;
+    </p>
+    <p>
+      <strong>III.VIII.</strong> Usuários com idade entre 16 (dezesseis) e 18
+      (dezoito) anos, ainda que emancipados, não estão autorizados a utilizar a
+      plataforma.
+    </p>
+
+    <h3>IV. DADOS NECESSÁRIOS PARA O CADASTRO DE PESSOA FÍSICA</h3>
+    <p>
+      Para realizar o cadastro como Pessoa Física no Arrenda Fácil, são exigidas
+      as seguintes informações:
+    </p>
+    <p>
+      <strong>IV.I.</strong> Nome completo (não sendo permitido o uso de
+      apelidos), CPF, idade, e-mail, endereço residencial e número de telefone;
+    </p>
+    <p>
+      <strong>IV.II.</strong> A criação de uma senha é obrigatória para
+      efetivação do cadastro, conforme disposto no item III.III;
+    </p>
+    <p>
+      <strong>IV.III.</strong> O acesso aos dados de contato dos anúncios é
+      liberado após a conclusão e validação do cadastro, sem custos iniciais.
+    </p>
+    <p>
+      <strong>IV.IV.</strong> A veracidade e atualização das informações
+      fornecidas são de total responsabilidade do usuário.
+    </p>
+
+    <h3>V. DADOS NECESSÁRIOS PARA O CADASTRO DE PESSOA JURÍDICA</h3>
+    <p>
+      Para cadastrar-se como Pessoa Jurídica, é necessário fornecer as seguintes
+      informações:
+    </p>
+    <p>
+      <strong>V.I.</strong> Razão Social, Nome Fantasia (quando aplicável),
+      CNPJ, e-mail, endereço da sede ou filial, telefone de contato, nome
+      completo e CPF do representante legal;
+    </p>
+    <p>
+      <strong>V.II.</strong> O cadastro será efetivado mediante a criação de uma
+      senha pelo representante legal, conforme previsto no item III.III;
+    </p>
+    <p>
+      <strong>V.III.</strong> O acesso aos dados de contato dos anúncios da
+      plataforma é liberado após a conclusão e validação do cadastro, sem
+      custos iniciais.
+    </p>
+    <p>
+      <strong>V.IV.</strong> Toda a responsabilidade pelas informações
+      fornecidas recai sobre a pessoa jurídica e seu representante legal.
+    </p>
+
+    <h3>VI. DOS ANÚNCIOS</h3>
+    <p>
+      <strong>VI.I.</strong> É de responsabilidade exclusiva do usuário o
+      conteúdo do anúncio, incluindo as informações sobre a propriedade rural,
+      bem como suas necessidades ou exigências, tanto para disponibilização
+      quanto para a busca de terras para arrendamento;
+    </p>
+    <p>
+      <strong>VI.II.</strong> Não serão permitidos anúncios que contenham
+      conteúdo ilícito ou proibido por estes termos.
+    </p>
+
+    <h3>VII. CUSTOS E TAXAS</h3>
+    <p>
+      <strong>VII.I.</strong> O cadastro, a busca e a publicação de anúncios na
+      plataforma são gratuitos.
+    </p>
+    <p>
+      <strong>VII.II.</strong> Para celebrar seu primeiro arrendamento através
+      da plataforma, o usuário não incorrerá em qualquer custo. É nossa forma de
+      incentivar a sua jornada conosco.
+    </p>
+    <p>
+      <strong>VII.III.</strong> A partir do segundo arrendamento efetivado com
+      sucesso através da plataforma, será cobrada uma taxa de serviço. O valor
+      e as condições desta taxa serão informados de forma clara antes de
+      qualquer cobrança.
+    </p>
+
+    <h3>VIII. DO PAGAMENTO</h3>
+    <p>
+      <strong>VIII.I.</strong> A taxa de serviço mencionada no item VII.III
+      poderá ser paga via PIX ou Cartão de Crédito, conforme opção escolhida no
+      momento da contratação do serviço.
+    </p>
+
+    <h3>IX. DO CANCELAMENTO E RESSARCIMENTO</h3>
+    <p>
+      <strong>IX.I.</strong> Em caso de pagamento da taxa de serviço, o usuário
+      poderá solicitar o cancelamento com reembolso integral, desde que o pedido
+      seja feito no prazo de até 7 (sete) dias a contar da data do pagamento,
+      conforme o art. 49 do Código de Defesa do Consumidor.
+    </p>
+    <p>
+      <strong>IX.II.</strong> O ressarcimento será efetuado apenas nos casos
+      previstos no item anterior. O uso gratuito da plataforma não gera
+      qualquer direito a ressarcimento.
+    </p>
+
+    <h3>X. POLÍTICA DE PRIVACIDADE E TRATAMENTO DE DADOS PESSOAIS</h3>
+    <p>
+      <strong>X.I.</strong> A Arrenda Fácil compromete-se com a proteção da
+      privacidade e dos dados pessoais de seus usuários, em conformidade com a
+      Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD).
+    </p>
+  </>
+);
+
+export default function App() {
+  const [pagina, setPagina] = useState("home"); // home, listaTerras, detalhes, login, cadastro
+  const [terraSelecionada, setTerraSelecionada] = useState(null);
+  const [aceitouTermos, setAceitouTermos] = useState(false); // Estado para os termos de uso
+  const [mostrarTermosModal, setMostrarTermosModal] = useState(false); // Novo estado para controlar o modal
+
+  function abrirDetalhes(terra) {
+    setTerraSelecionada(terra);
+    setPagina("detalhes");
+  }
+
+  function voltarHome() {
+    setPagina("home");
+    setTerraSelecionada(null);
+  }
+
+  function handleCadastro(e) {
+    e.preventDefault();
+    if (!aceitouTermos) {
+      alert("Você deve aceitar os Termos de Uso para se cadastrar.");
+      return;
+    }
+    alert("Cadastro não implementado. Esta é uma demonstração.");
+  }
+
+  return (
+    <div>
+      {/* Barra de Navegação */}
+      <nav style={styles.nav}>
+        <a href="#" style={styles.navLink} onClick={() => setPagina("home")}>
+          ARRENDA FÁCIL
+        </a>
+        <a href="#oque" style={styles.navLink} onClick={() => setPagina("home")}>
+          O QUE FAZEMOS
+        </a>
+        <a href="#como" style={styles.navLink} onClick={() => setPagina("home")}>
+          COMO FAZEMOS
+        </a>
+        <a href="#faq" style={styles.navLink} onClick={() => setPagina("home")}>
+          PERGUNTAS
+        </a>
+        <a
+          href="#contato"
+          style={styles.navLink}
+          onClick={() => setPagina("home")}
+        >
+          ENTRE EM CONTATO
+        </a>
+        <a href="#login" style={styles.navLink} onClick={() => setPagina("login")}>
+          LOGIN
+        </a>
+        <a
+          href="#cadastro"
+          style={styles.navLink}
+          onClick={() => setPagina("cadastro")}
+        >
+          CADASTRE-SE
+        </a>
+        <a
+          style={styles.accessButton}
+          href="#login"
+          onClick={() => setPagina("login")}
+        >
+          ACESSE A PLATAFORMA
+        </a>
+      </nav>
+
+      {/* Conteúdo dinâmico */}
+      {pagina === "home" && (
+        <>
+          {/* Seção de Cabeçalho/Hero (TEXTO MODIFICADO) */}
+          <header style={styles.header}>
+            <h1 style={styles.headerTitle}>ARRENDA FÁCIL</h1>
+            <p style={styles.headerText}>CONECTANDO TERRAS E OPORTUNIDADES</p>
+            <button
+              onClick={() => setPagina("listaTerras")}
+              style={styles.ctaButton}
+            >
+              VER TERRAS DISPONÍVEIS
+            </button>
+          </header>
+
+          {/* Seção "O QUE FAZEMOS" (TEXTO MODIFICADO) */}
+          <section id="oque" style={styles.section}>
+            <h2 style={styles.sectionTitle}>O QUE FAZEMOS</h2>
+            <div style={styles.timeline}>
+              <div style={styles.timelineItem}>
+                <h3>Proprietários</h3>
+                <p>
+                  Transforme sua propriedade ociosa em uma fonte de renda
+                  segura e recorrente.
+                </p>
+              </div>
+              <div style={styles.timelineItem}>
+                <h3>Arrendatários</h3>
+                <p>
+                  Encontre a terra ideal para o seu projeto agrícola ou
+                  pecuário de forma simples, rápida e transparente.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Seção "COMO FAZEMOS" (TEXTO MODIFICADO) */}
+          <section id="como" style={styles.section}>
+            <h2 style={styles.sectionTitle}>COMO FAZEMOS</h2>
+            <div style={styles.timeline}>
+              <div style={styles.timelineItem}>
+                <p>
+                  Promovemos a conexão direta entre proprietários e
+                  arrendatários, eliminando intermediários e burocracias
+                  desnecessárias.
+                </p>
+              </div>
+              <div style={styles.timelineItem}>
+                <p>
+                  Oferecemos uma plataforma segura e intuitiva, onde a
+                  transparência e a sustentabilidade são os pilares para um
+                  arrendamento de sucesso.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Seção "Públicos" */}
+          <section style={styles.section}>
+            <h2 style={styles.sectionTitle}>Públicos</h2>
+            <div style={styles.cards}>
+              <div style={styles.card}>
+                <img
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                  alt="Proprietários"
+                  style={styles.cardImage}
+                />
+                <h3>Proprietários</h3>
+                <p>Cadastre suas terras e encontre arrendatários ideais.</p>
+              </div>
+              <div style={styles.card}>
+                <img
+                  src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80"
+                  alt="Arrendatários"
+                  style={styles.cardImage}
+                />
+                <h3>Arrendatários</h3>
+                <p>Busque propriedades de forma clara e eficiente.</p>
+              </div>
+              <div style={styles.card}>
+                <img
+                  src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=400&q=80"
+                  alt="Agentes"
+                  style={styles.cardImage}
+                />
+                <h3>Agentes</h3>
+                <p>Negocie arrendamentos com segurança e alcance.</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Seção de Perguntas Frequentes (FAQ) (RESPOSTAS MODIFICADAS) */}
+          <section id="faq" style={styles.section}>
+            <h2 style={styles.sectionTitle}>Perguntas Frequentes</h2>
+            <details style={styles.details}>
+              <summary style={styles.summary}>
+                Como funciona o processo na plataforma?
+              </summary>
+              <p style={styles.detailsContent}>
+                Nosso processo foi pensado para ser simples e direto:
+                <br />
+                1. <strong>Cadastro:</strong> Crie sua conta gratuitamente como
+                proprietário ou arrendatário.
+                <br />
+                2. <strong>Anúncio/Busca:</strong> Proprietários descrevem suas
+                terras com detalhes e fotos. Arrendatários utilizam nossos
+                filtros para encontrar a propriedade ideal.
+                <br />
+                3. <strong>Conexão:</strong> Os interessados entram em contato
+                direto através da plataforma para iniciar a negociação.
+                <br />
+                4. <strong>Negociação e Contrato:</strong> Toda a negociação e
+                o fechamento do contrato são feitos diretamente entre as
+                partes, com total autonomia.
+              </p>
+            </details>
+            <details style={styles.details}>
+              <summary style={styles.summary}>
+                Consigo usar a plataforma para aumentar o alcance?
+              </summary>
+              <p style={styles.detailsContent}>
+                Com certeza! O Arrenda Fácil é uma ferramenta poderosa para
+                corretores e agentes. Ao se cadastrar, você ganha acesso a uma
+                vitrine especializada e um público altamente qualificado,
+                aumentando drasticamente a visibilidade dos seus anúncios e as
+                chances de fechar ótimos negócios.
+              </p>
+            </details>
+            <details style={styles.details}>
+              <summary style={styles.summary}>
+                Existe custo para utilizar?
+              </summary>
+              <p style={styles.detailsContent}>
+                Não! O uso da nossa plataforma para se cadastrar, buscar e
+                anunciar terras é totalmente gratuito. Queremos que você
+                experimente todo o potencial do Arrenda Fácil sem barreiras
+                financeiras.
+              </p>
+            </details>
+            <details style={styles.details}>
+              <summary style={styles.summary}>
+                Há taxa por arrendamento efetivado?
+              </summary>
+              <p style={styles.detailsContent}>
+                Seu primeiro arrendamento é 100% gratuito como nosso presente
+                de boas-vindas! A partir do segundo arrendamento efetivado,
+                uma pequena taxa de sucesso é aplicada. Essa contribuição é
+                fundamental para mantermos a plataforma segura, funcional e em
+                constante evolução.
+              </p>
+            </details>
+          </section>
+
+          {/* Seção de Contato */}
+          <section id="contato" style={styles.section}>
+            <h2 style={styles.sectionTitle}>Entre em Contato</h2>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert("Obrigado por entrar em contato!");
+              }}
+              style={styles.form}
+            >
+              <input
+                type="text"
+                placeholder="Seu nome"
+                required
+                style={styles.input}
+              />
+              <input
+                type="email"
+                placeholder="Seu email"
+                required
+                style={styles.input}
+              />
+              <textarea
+                placeholder="Sua mensagem"
+                required
+                rows="4"
+                style={styles.textarea}
+              ></textarea>
+              <button type="submit" style={styles.submitButton}>
+                Enviar
+              </button>
+            </form>
+          </section>
+        </>
+      )}
+
+      {pagina === "listaTerras" && (
+        <section style={{ padding: "20px" }}>
+          <h2>Terras Disponíveis para Arrendamento</h2>
+          <button onClick={voltarHome} style={styles.backButton}>
+            ← Voltar
+          </button>
+          <div style={styles.cards}>
+            {terrasData.map((terra) => (
+              <div
+                key={terra.id}
+                style={styles.card}
+                onClick={() => abrirDetalhes(terra)}
+              >
+                <img
+                  src={terra.imagem}
+                  alt={terra.nome}
+                  style={styles.cardImage}
+                />
+                <h3>{terra.nome}</h3>
+                <p>{terra.localizacao}</p>
+                <p>{terra.preco}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {pagina === "detalhes" && terraSelecionada && (
+        <section style={{ padding: "20px" }}>
+          <button
+            onClick={() => setPagina("listaTerras")}
+            style={styles.backButton}
+          >
+            ← Voltar à lista
+          </button>
+          <h2>{terraSelecionada.nome}</h2>
+          <img
+            src={terraSelecionada.imagem}
+            alt={terraSelecionada.nome}
+            style={{ maxWidth: "100%", borderRadius: 8, marginBottom: 20 }}
+          />
+          <p>
+            <strong>Localização:</strong> {terraSelecionada.localizacao}
+          </p>
+          <p>
+            <strong>Resumo:</strong> {terraSelecionada.resumo}
+          </p>
+          <p>
+            <strong>Preço:</strong> {terraSelecionada.preco}
+          </p>
+          <p>
+            <strong>Detalhes:</strong> {terraSelecionada.detalhes}
+          </p>
+
+          <div style={{ marginTop: 20 }}>
+            <h3>Localização no mapa:</h3>
+            <iframe
+              title="mapa"
+              src={terraSelecionada.mapaEmbed}
+              width="100%"
+              height="300"
+              style={{ border: 0, borderRadius: 8 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </section>
+      )}
+
+      {/* Página de Login simples, só para exemplo */}
+      {pagina === "login" && (
+        <section style={{ padding: "20px" }}>
+          <button onClick={voltarHome} style={styles.backButton}>
+            ← Voltar
+          </button>
+          <h2>Login</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              alert("Login não implementado. Esta é uma demonstração.");
+            }}
+            style={styles.form}
+          >
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              style={styles.input}
+            />
+            <input
+              type="password"
+              placeholder="Senha"
+              required
+              style={styles.input}
+            />
+            <button type="submit" style={styles.submitButton}>
+              Entrar
+            </button>
+          </form>
+        </section>
+      )}
+
+      {/* Página de Cadastro */}
+      {pagina === "cadastro" && (
+        <section style={{ padding: "20px" }}>
+          <button onClick={voltarHome} style={styles.backButton}>
+            ← Voltar
+          </button>
+          <h2>Cadastre-se</h2>
+          <form onSubmit={handleCadastro} style={styles.form}>
+            <input
+              type="text"
+              placeholder="Seu nome completo"
+              required
+              style={styles.input}
+            />
+            <input
+              type="email"
+              placeholder="Seu melhor email"
+              required
+              style={styles.input}
+            />
+            <input
+              type="password"
+              placeholder="Crie uma senha"
+              required
+              style={styles.input}
+            />
+            <input
+              type="password"
+              placeholder="Confirme sua senha"
+              required
+              style={styles.input}
+            />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                marginTop: "10px",
+              }}
+            >
+              <input
+                type="checkbox"
+                id="termosDeUso"
+                checked={aceitouTermos}
+                onChange={(e) => setAceitouTermos(e.target.checked)}
+                style={styles.checkbox}
+              />
+              <label htmlFor="termosDeUso" style={styles.checkboxLabel}>
+                Eu li e aceito os{" "}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMostrarTermosModal(true);
+                  }}
+                  style={styles.termosLink}
+                >
+                  Termos de Uso
+                </a>
+              </label>
+            </div>
+            <button type="submit" style={styles.submitButton}>
+              Cadastrar
+            </button>
+          </form>
+        </section>
+      )}
+
+      {/* Modal de Termos de Uso */}
+      {mostrarTermosModal && (
+        <div style={styles.modalOverlay}>
+          <div style={styles.modalContent}>
+            <button
+              onClick={() => setMostrarTermosModal(false)}
+              style={styles.modalCloseButton}
+            >
+              X
+            </button>
+            <h2 style={{ color: "#2E8B57" }}>
+              Termos e Condições Gerais de Uso
+            </h2>
+            <div style={styles.termsScrollableArea}>{termosDeUsoContent}</div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Corrigido o erro de sintaxe no backgroundImage
+const styles = {
+  nav: {
+    backgroundColor: "#2E8B57",
+    padding: "10px 20px",
+    display: "flex",
+    alignItems: "center",
+    gap: 15,
+    flexWrap: "wrap",
+  },
+  navLink: {
+    color: "white",
+    textDecoration: "none",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+  accessButton: {
+    marginLeft: "auto",
+    backgroundColor: "#FFD700",
+    padding: "8px 15px",
+    borderRadius: 4,
+    color: "#2E8B57",
+    fontWeight: "bold",
+    cursor: "pointer",
+    textDecoration: "none",
+  },
+  header: {
+    textAlign: "center",
+    color: "white",
+    padding: "80px 20px",
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('https://blog.aegro.com.br/wp-content/uploads/2021/12/arrendamento-rural.jpg')`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  },
+  headerTitle: {
+    fontSize: "3em",
+    margin: "0 0 10px",
+  },
+  headerText: {
+    fontSize: "1.5em",
+    margin: "0 0 20px",
+  },
+  ctaButton: {
+    padding: "15px 30px",
+    fontSize: "1.2em",
+    backgroundColor: "#FFD700",
+    border: "none",
+    borderRadius: 6,
+    cursor: "pointer",
+    fontWeight: "bold",
+    color: "#2E8B57",
+  },
+  section: {
+    padding: "40px 20px",
+    maxWidth: 900,
+    margin: "0 auto",
+  },
+  sectionTitle: {
+    fontSize: "2em",
+    marginBottom: 20,
+    color: "#2E8B57",
+  },
+  timeline: {
+    display: "flex",
+    gap: 30,
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  timelineItem: {
+    flex: "1 1 300px",
+    backgroundColor: "#F0FFF0",
+    padding: 20,
+    borderRadius: 8,
+    boxShadow: "0 0 8px rgba(0,0,0,0.1)",
+  },
+  cards: {
+    display: "flex",
+    gap: 20,
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  card: {
+    cursor: "pointer",
+    width: 260,
+    boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+    borderRadius: 8,
+    overflow: "hidden",
+    backgroundColor: "#fff",
+    transition: "transform 0.2s",
+  },
+  cardImage: {
+    width: "100%",
+    height: 160,
+    objectFit: "cover",
+  },
+  details: {
+    backgroundColor: "#f9f9f9",
+    padding: "15px 20px",
+    marginBottom: 10,
+    borderRadius: 6,
+    cursor: "pointer",
+    border: "1px solid #eee",
+  },
+  summary: {
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#2E8B57",
+  },
+  detailsContent: {
+    marginTop: 10,
+    fontSize: 14,
+    color: "#333",
+    lineHeight: 1.6,
+  },
+  form: {
+    maxWidth: 400,
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: "column",
+    gap: 15,
+  },
+  input: {
+    padding: 10,
+    fontSize: 16,
+    borderRadius: 6,
+    border: "1px solid #ccc",
+  },
+  textarea: {
+    padding: 10,
+    fontSize: 16,
+    borderRadius: 6,
+    border: "1px solid #ccc",
+    resize: "vertical",
+  },
+  submitButton: {
+    padding: 12,
+    backgroundColor: "#2E8B57",
+    color: "white",
+    fontWeight: "bold",
+    border: "none",
+    borderRadius: 6,
+    cursor: "pointer",
+    fontSize: 16,
+  },
+  backButton: {
+    backgroundColor: "#ccc",
+    border: "none",
+    borderRadius: 6,
+    padding: "8px 12px",
+    cursor: "pointer",
+    marginBottom: 20,
+  },
+  checkbox: {
+    width: "20px",
+    height: "20px",
+    cursor: "pointer",
+  },
+  checkboxLabel: {
+    fontSize: 14,
+    color: "#333",
+    cursor: "pointer",
+  },
+  termosLink: {
+    color: "#2E8B57",
+    textDecoration: "underline",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+  // Estilos para o Modal
+  modalOverlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1000,
+  },
+  modalContent: {
+    backgroundColor: "#fff",
+    padding: "25px",
+    borderRadius: "10px",
+    width: "90%",
+    maxWidth: "700px",
+    maxHeight: "90vh",
+    overflowY: "auto",
+    position: "relative",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+  },
+  modalCloseButton: {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    backgroundColor: "transparent",
+    border: "none",
+    fontSize: "24px",
+    cursor: "pointer",
+    color: "#333",
+    padding: "5px 10px",
+    borderRadius: "50%",
+  },
+  termsScrollableArea: {
+    marginTop: "20px",
+    lineHeight: 1.6,
+  },
+};
