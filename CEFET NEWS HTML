@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEFET News - Seu portal de notícias acadêmicas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logos">
+                <img src="logo-cefet.png" alt="Logo CEFET" class="logo-img">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Destaque</a></li>
+                    <li><a href="#">Esporte</a></li>
+                    <li><a href="#">Editais</a></li>
+                    <li><a href="#">Avisos</a></li>
+                    <li><a href="#">Entrevistas</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CEFET News</h1>
+            <p>Seu portal de notícias acadêmicas</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">Destaque</h2>
+        
+        <div class="news-grid">
+            <article class="news-card">
+                <img src="https://via.placeholder.com/400x250" alt="Biblioteca">
+                <div class="card-content">
+                    <span class="date">5 de Abril, 2026</span>
+                    <h3>Biblioteca terá horário especial durante o recesso</h3>
+                    <p>Funcionamento será de segunda a sexta, das 8h às 17h.</p>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="https://via.placeholder.com/400x250" alt="Pesquisador">
+                <div class="card-content">
+                    <span class="date">4 de Abril, 2026</span>
+                    <h3 class="blue-text">Entrevista exclusiva com pesquisador premiado</h3>
+                    <p>Professor do CEFET fala sobre projeto de energia renovável.</p>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <img src="https://via.placeholder.com/400x250" alt="Natação">
+                <div class="card-content">
+                    <span class="date">3 de Abril, 2026</span>
+                    <h3>Natação: CEFET recebe competição interestadual</h3>
+                    <p>Evento reunirá mais de 300 atletas de diferentes instituições.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Entre em Contato</h2>
+                <p>Tem alguma sugestão de pauta, notícia ou quer colaborar com o CEFET News? Entre em contato conosco.</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>cefetnews25@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>Rua José Peres, 558 – Centro<br>Leopoldina - MG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Envie sua Mensagem</h3>
+                    <form>
+                        <label>Nome</label>
+                        <input type="text" placeholder="">
+                        
+                        <label>Email</label>
+                        <input type="email" placeholder="">
+                        
+                        <label>Assunto</label>
+                        <input type="text" placeholder="">
+                        
+                        <label>Mensagem</label>
+                        <textarea rows="5"></textarea>
+                        
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
