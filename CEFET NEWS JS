@@ -1,0 +1,47 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Validação do Formulário de Contato
+    const contactForm = document.querySelector('.contact-form form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Impede o envio real para teste
+            
+            const nome = contactForm.querySelector('input[type="text"]').value;
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const mensagem = contactForm.querySelector('textarea').value;
+
+            if (nome === "" || email === "" || mensagem === "") {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+            } else {
+                alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`);
+                contactForm.reset(); // Limpa o formulário
+            }
+        });
+    }
+
+    // 2. Efeito de Clique nos Links da Navegação
+    const navLinks = document.querySelectorAll('nav ul li a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove a classe 'active' de todos
+            navLinks.forEach(ln => ln.classList.remove('active'));
+            // Adiciona apenas no que foi clicado
+            this.classList.add('active');
+        });
+    });
+
+    // 3. Simulação de Busca
+    const searchIcon = document.querySelector('.fa-search');
+    if (searchIcon) {
+        searchIcon.parentElement.addEventListener('click', (e) => {
+            e.preventDefault();
+            const termo = prompt("O que você deseja buscar no CEFET News?");
+            if (termo) {
+                console.log("Buscando por: " + termo);
+                alert("Resultados para: " + termo);
+            }
+        });
+    }
+});
